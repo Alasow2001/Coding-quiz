@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Document</title>
 </head>
 <body>
     
@@ -19,11 +19,11 @@
     <main>
         <div id="welcome">
             <h1>Welcome to the coding quiz!</h1>
-            <button id="startGame" class="button">Start</button>
+            <button id="startGame">Start</button>
         </div>
 
         <div id="quiz" class="hidden">
-            <div id="">
+            <div id="question">
 
             </div>
     
@@ -38,14 +38,13 @@
 
         <div id="result" class="hidden">
             <div id="summary"></div>
-            <button id="highscores" class="button">HighScore List</button>
-            <button id="saveScore" class="button">Save score?</button>
-            <button id="playAgain" class="button">Play again?</button>
+            <button id="viewScore">HighScore List</button>
+            <input type="text" id="username" placeholder="Enter username here:" />
+            <button id="saveScore">Save score?</button>
+            <button id="playAgain">Play again?</button>
         </div>
     </main>
-
-    <script src="text/javascript" src="assets/js/questions.js"></script>
-
-    <script src="text/javascript" src="assets/js/gamelogic.js"></script>
 </body>
+<script src="/assets/js/questions.js"></script>
+<script src="/assets/js/gamelogic.js"></script>
 </html>
