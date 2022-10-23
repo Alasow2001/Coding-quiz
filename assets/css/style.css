@@ -1,35 +1,38 @@
+*{
+    box-sizing: border-box;
+    padding: auto;
+    margin: auto;
+}
+
 :root{
-    --main-bg-col: blueviolet;
-    --button-col: darkblue;
+    --button-col: #42136e;
+    --main-bg-col: #515199;
 }
 
 button{
     color: var(--button-col);
+    font-weight: bolder;
 }
 
 body{
-    color: var(--main-bg-col);
+    background-color: var(--main-bg-col);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 header{
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+    justify-content: right;
 }
 
-main{
-    background-color: blue;
-    
-}
 
-.result{
-
-}
-
-.score-item{
-    
-}
-
-.player-item{
-    
+h1{
+    align-items: center;
+    justify-content: center;
 }
 
