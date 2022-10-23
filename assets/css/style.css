@@ -1,0 +1,35 @@
+:root{
+    --main-bg-col: blueviolet;
+    --button-col: darkblue;
+}
+
+button{
+    color: var(--button-col);
+}
+
+body{
+    color: var(--main-bg-col);
+}
+
+header{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main{
+    background-color: blue;
+    
+}
+
+.result{
+
+}
+
+.score-item{
+    
+}
+
+.player-item{
+    
+}
+
