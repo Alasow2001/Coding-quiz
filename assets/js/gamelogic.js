@@ -1,7 +1,7 @@
-var startGame = document.getElementById("startgame");
-var saveScore = document.getElementById("savescore");
-var scoreList = document.getElementById("scorelist");
-var playAgain = document.getElementById("playagain");
+var startGame = document.getElementById("startGame");
+var saveScore = document.getElementById("saveScore");
+var viewScore = document.getElementById("viewScore");
+var playAgain = document.getElementById("playAgain");
 var welcomeScreen = document.getElementById("welcome");
 var options = document.getElementById("options");
 var quiz = document.getElementById("quiz");
@@ -40,20 +40,19 @@ function gameStop(e){
 
     timer.textContent = "";
 
-    gamelogic.style.display = "none";
+    quiz.style.display = "none";
     result.style.display = "flex";
 
     summary.textContent = "Your score is: " + score;
 }
 
-// If the user gets the answer right, 1 point and 10 seconds is added to their score and timer respectively and vice versa
+// If the user gets the answer right, 1 point is added to their score. If not, 1 pont and ten seconds are deducted from the timer.
 function selectAnswer(e){
-    var correctAnswer = questions[currentQuestion].selectAnswer
+    var correctAnswer = questions[questionNumber].answer
     var userSelect = e.target.textContent;
 
     if(correctAnswer == userSelect){
-        score++;
-        secondsLeft+=10;
+        score+=5;
 
         displayMessage("Correct :)")
     }else{
@@ -61,11 +60,14 @@ function selectAnswer(e){
         secondsLeft-=10;
         displayMessage("Wrong :(")
     }
+
+    displayQuestion();
 }
 
 function displayMessage(msg){
     message.textContent = msg;
 
+    // Clears the message after a second
     setTimeout(function(){
         message.textContent = "";
     }, 1000)
@@ -73,26 +75,34 @@ function displayMessage(msg){
 
 // Displays all of the questions for the quiz onto the screen
 function displayQuestion(){
-    currentQuestion++;
+    // Increments the current question by one
+    questionNumber++;
 
-    console.log("current question is " + currentQuestion);
+    // Logs to the console which question the user is currently on
+    console.log("current question is " + questionNumber);
 
-    if(currentQuestion >= questions.length){
+    // Stops the game is the user has finished the quiz
+    if(questionNumber >= questions.length){
         gameStop();
         return;
     }
 
-    var question = questions[currentQuestion];
-    document.getElementById("question").textContent = question.setInterval
+    // Stores the questions from the questions.js file into an array
+    var question = questions[questionNumber];
+    document.getElementById("question").textContent = question.title;
 
     options.innerHTML = "";
 
+    // This loop will show the options from the questions.js file and display them in a list for the user to choose.
     for(var i = 0; i < question.choices.length; i++){
-        var option = document.createEvent("div");
+
+        var option = document.createElement("button");
         option.textContent = question.choices[i];
         option.onclick = selectAnswer;
         option.classList.add("option");
+
         options.appendChild(option);
+
     }
 }
 
@@ -104,6 +114,7 @@ function gameStart(){
 
     score = 0;
 
+    // Decrements the timer by one until there is none left, the stops the game
     countdownTime = setInterval(function() {
          if(secondsLeft > 0){
             timer.textContent = secondsLeft;
@@ -113,6 +124,7 @@ function gameStart(){
          secondsLeft--;
     }, 1000)
 
+    // Once the game starts, both the welcome screen and the results screen are hidden from the user, displaying the questions and the options for them to shoose from
     welcomeScreen.style.display = 'none';
     result.style.display = 'none';
     quiz.style.display = 'flex';
