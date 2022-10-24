@@ -12,6 +12,7 @@
 button{
     color: var(--button-col);
     font-weight: bolder;
+    margin: 10px;
 }
 
 body{
