@@ -26,7 +26,9 @@ Documentation on event handlers in JavaScript: https://www.w3schools.com/js/js_e
 
 Documentation on display property: https://www.w3schools.com/cssref/pr_class_display.asp
 
-Link to deployed website: 
+Fixing a load resource error: https://stackoverflow.com/questions/22317206/failed-to-load-resource-the-server-responded-with-a-status-of-404-not-found
+
+Link to deployed website: https://alasow2001.github.io/Coding-quiz/
 
 ## License
 N/A
